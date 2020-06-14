@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux'
+import { logout } from '../actions/loginActions'
 import '../styles/css/nav.css'
 import logo from '../assets/img/pypi-logo.svg'
 
@@ -27,12 +28,14 @@ const NavBar = (props) => (
                     <NavLink to="#" className="nav-link">Help</NavLink>
                 </li>
                 {
-                    props.userReducer.loggedIn ? (
+                    props.loginReducer.loggedIn ? (
                         <React.Fragment>
                             <li className="nav-item">
                                 <NavLink to="/account" className="nav-link">Account</NavLink>
                             </li>
-                            <li className="nav-item"><a className="nav-link" href="/account/logout" id="last_nav_link">Logout</a></li>
+                            <li className="nav-item">
+                                <a onClick={props.logout} className="nav-link" id="last_nav_link">Logout</a>
+                            </li>
                         </React.Fragment>
                     ) :
                         (<React.Fragment>
@@ -52,8 +55,12 @@ const NavBar = (props) => (
 );
 const mapStateToProps = (state) => {
     return {
-        userReducer: state.userReducer
+        loginReducer: state.loginReducer
     }
 };
-
-export default connect(mapStateToProps)(NavBar);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logout: () => dispatch(logout())
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

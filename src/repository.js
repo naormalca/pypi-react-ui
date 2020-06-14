@@ -7,7 +7,7 @@ export function getLatestReleases(amount) {
 }
 
 export function loginUser(userData) {
-    return fetch(`${BASE_URL}/login`, {
+    return fetch(`${BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -15,11 +15,14 @@ export function loginUser(userData) {
         },
         body: JSON.stringify(userData)
     })
-        .then(response => response.json())
+        .then(response => response.json().then(data => ({
+            data: data,
+            status: response.status
+        })))
 }
 
 export function signUp(userData) {
-    return fetch(`${BASE_URL}/signup`, {
+    return fetch(`${BASE_URL}/auth/signup`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -27,18 +30,23 @@ export function signUp(userData) {
         },
         body: JSON.stringify(userData)
     })
-        .then(response => response.json())
+        .then(response => response.json().then(data => ({
+            data: data,
+            status: response.status
+        })))
 }
 
-export function autoAuth(userData) {
-    return fetch(`${BASE_URL}/auto-login`, {
-        method: "POST",
+export function autoAuth() {
+    return fetch(`${BASE_URL}/auth/auto-login`, {
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem("token")}`
-        },
-        body: JSON.stringify(userData)
+            "Authorization": `Bearer ${localStorage.getItem("auth_token")}`
+        }
     })
-        .then(response => response.json())
+        .then(response => response.json().then(data => ({
+            data: data,
+            status: response.status
+        })))
 }
