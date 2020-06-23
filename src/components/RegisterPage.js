@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { register } from '../actions/registerActions'
 import '../styles/css/custom.css'
 
-class Register extends React.Component {
+class RegisterPage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -105,4 +105,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);

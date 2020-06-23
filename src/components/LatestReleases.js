@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { getLatestReleases } from '../repository'
 import '../styles/css/site.css'
 
-const ReleaseItem = ({ id, version, package: { summary, id: package_id } }) => (
+const ReleaseItem = ({ version, package: { summary, id: package_id } }) => (
     <div className="project">
         <div className="title">
-            <a href={`/project/${id}`}>{package_id} {version}</a>
+            <Link to={`/project/${package_id}`}>{package_id} {version}</Link>
             <div className="desc">{summary}</div>
         </div>
     </div>

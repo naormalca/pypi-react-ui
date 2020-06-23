@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { login } from '../actions/loginActions'
 import '../styles/css/custom.css'
 
-class Login extends React.Component {
+class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -84,4 +84,4 @@ const mapStateToProps = (state) => {
         loginReducer: state.loginReducer
     }
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
