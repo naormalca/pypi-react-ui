@@ -11,6 +11,7 @@ import RegisterPage from '../components/RegisterPage';
 import PackagePage from '../components/PackagePage';
 import LoginPage from '../components/LoginPage';
 import StatsPage from '../components/StatsPage';
+import AccountPage from '../components/AccountPage';
 
 class AppRouter extends React.Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ class AppRouter extends React.Component {
             <Route path="/signup" component={RegisterPage} />
             <Route path="/project/:packageId" component={PackagePage} />
             <Route path="/stats" component={StatsPage} />
+            <Route path="/account/:userId" component={AccountPage} />
           </Switch>
         </div>
         <Footer />

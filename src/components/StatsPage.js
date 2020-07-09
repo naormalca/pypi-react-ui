@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { getUsers } from '../repository'
 
 const Header = () => (
@@ -71,7 +71,7 @@ class StatsPage extends React.Component {
                                         (this.state.new_users.map((user) => {
                                             return (
                                                 <div className="subtitle" key={user.id}>
-                                                    <Link to={`/users/${user.id}`}>{user.name}</Link>
+                                                    <NavLink to={`/account/${user.id}`}>{user.name}</NavLink>
                                                 </div>
                                             )
                                         })
@@ -85,7 +85,7 @@ class StatsPage extends React.Component {
                                         this.state.latest_logged.map((user) => {
                                             return (
                                                 <div className="subtitle" key={user.id}>
-                                                    <Link to={`/users/${user.id}`}>{user.name}</Link>
+                                                    <NavLink to={`/account/${user.id}`}>{user.name}</NavLink>
                                                 </div>
                                             )
                                         })

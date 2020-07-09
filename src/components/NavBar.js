@@ -31,7 +31,7 @@ const NavBar = (props) => (
                     props.loginReducer.loggedIn ? (
                         <React.Fragment>
                             <li className="nav-item">
-                                <NavLink  to={`/account/${props.userReducer.userId}`} className="nav-link">Account</NavLink>
+                                <NavLink to={`/account/${props.userReducer.userId}`} className="nav-link">Account</NavLink>
                             </li>
                             <li className="nav-item">
                                 <a onClick={props.logout} className="nav-link" id="last_nav_link">Logout</a>

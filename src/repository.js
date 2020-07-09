@@ -62,7 +62,7 @@ export function getUsers(params) {
     let query = Object.keys(params)
         .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
         .join('&');
-    return fetch(`${BASE_URL}/users?` + query)
+    return fetch(`${BASE_URL}/users?${query}`)
         .then(response => response.json().then(data => ({
             data: data,
             status: response.status

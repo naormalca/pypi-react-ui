@@ -166,9 +166,11 @@ class PackagePage extends React.Component {
     render() {
         return (
             <div className="content details">
-                {this.state.error}
+            <div className="container">
+                <h1>{this.state.error}</h1>    
+            </div>    
                 {
-                    !this.state.loading &&
+                    !this.state.loading && !this.state.error &&
                     <React.Fragment>
                         <Header packageDetails={this.state.packageDetails} />
                         <SummaryBar summary={this.state.packageDetails.package.summary} />
