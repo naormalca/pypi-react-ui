@@ -1,6 +1,6 @@
 const defaultState = {
     loggedIn: false,
-    user: {},
+    userEmail: {},
     error: ''
 }
 
@@ -9,18 +9,18 @@ const loginReducer = (state = defaultState, action) => {
         case "SET_REQUEST":
             return {
                 loggingIn: true,//for login form
-                user: action.email
+                userEmail: action.email
             }
         case "SET_USER":
             return {
                 loggedIn: true,
-                user: action.email
+                userEmail: action.email,
             }
         case "LOG_OUT":
             localStorage.clear()
             return {
                 loggedIn: false,
-                user: {}
+                userEmail: {}
             }
         case "SET_ERROR":
             return {

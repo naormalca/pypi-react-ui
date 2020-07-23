@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { logout } from '../actions/loginActions'
 import '../styles/css/nav.css'
@@ -31,7 +31,7 @@ const NavBar = (props) => (
                     props.loginReducer.loggedIn ? (
                         <React.Fragment>
                             <li className="nav-item">
-                                <NavLink to="/account" className="nav-link">Account</NavLink>
+                                <NavLink  to={`/account/${props.userReducer.userId}`} className="nav-link">Account</NavLink>
                             </li>
                             <li className="nav-item">
                                 <a onClick={props.logout} className="nav-link" id="last_nav_link">Logout</a>
@@ -55,7 +55,8 @@ const NavBar = (props) => (
 );
 const mapStateToProps = (state) => {
     return {
-        loginReducer: state.loginReducer
+        loginReducer: state.loginReducer,
+        userReducer: state.userReducer
     }
 };
 const mapDispatchToProps = (dispatch) => {

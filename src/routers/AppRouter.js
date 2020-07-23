@@ -5,7 +5,7 @@ import Home from '../components/Home';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import '../styles/css/site.css'
-import { autoLogin } from '../actions/loginActions';
+import { autoLogin } from '../actions/userActions';
 import {history} from '../helpers/history'
 import RegisterPage from '../components/RegisterPage';
 import PackagePage from '../components/PackagePage';
@@ -14,7 +14,7 @@ import StatsPage from '../components/StatsPage';
 
 class AppRouter extends React.Component {
   componentDidMount() {
-    this.props.autoLogin()
+    this.props.autoLogin();
   }
   render() {
     return (
