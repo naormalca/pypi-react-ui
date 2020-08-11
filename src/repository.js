@@ -1,5 +1,12 @@
 const BASE_URL = 'http://localhost:5000/api'
 
+
+const convertParamsToQuery = (params) => {
+    return Object.keys(params)
+        .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
+        .join('&');
+}
+
 export function loginUser(userData) {
     return fetch(`${BASE_URL}/auth/login`, {
         method: "POST",
@@ -59,10 +66,17 @@ export function getPackageDetails(packageId) {
 }
 
 export function getUsers(params) {
-    let query = Object.keys(params)
-        .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
-        .join('&');
+    let query = convertParamsToQuery(params);
     return fetch(`${BASE_URL}/users?${query}`)
+        .then(response => response.json().then(data => ({
+            data: data,
+            status: response.status
+        })))
+}
+
+export function searchProjectsByString(params) {
+    let query = convertParamsToQuery(params);
+    return fetch(`${BASE_URL}/packages/search?${query}`)
         .then(response => response.json().then(data => ({
             data: data,
             status: response.status

@@ -1,17 +1,19 @@
 import React from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Home from '../components/Home';
+import Home from '../components/HomePage';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import '../styles/css/site.css'
 import { autoLogin } from '../actions/userActions';
-import {history} from '../helpers/history'
+import { history } from '../helpers/history'
 import RegisterPage from '../components/RegisterPage';
 import PackagePage from '../components/PackagePage';
 import LoginPage from '../components/LoginPage';
 import StatsPage from '../components/StatsPage';
 import AccountPage from '../components/AccountPage';
+import SearchResultsPage from '../components/SearchPage';
+
+import '../styles/css/site.css'
 
 class AppRouter extends React.Component {
   componentDidMount() {
