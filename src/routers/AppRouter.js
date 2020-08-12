@@ -11,7 +11,7 @@ import PackagePage from '../components/PackagePage';
 import LoginPage from '../components/LoginPage';
 import StatsPage from '../components/StatsPage';
 import AccountPage from '../components/AccountPage';
-import SearchResultsPage from '../components/SearchPage';
+import NoMatch from '../components/NoMatch';
 
 import '../styles/css/site.css'
 
@@ -31,6 +31,7 @@ class AppRouter extends React.Component {
             <Route path="/project/:packageId" component={PackagePage} />
             <Route path="/stats" component={StatsPage} />
             <Route path="/account/:userId" component={AccountPage} />
+            <Route component={NoMatch} />
           </Switch>
         </div>
         <Footer />
