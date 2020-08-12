@@ -34,7 +34,7 @@ class SearchBar extends React.Component {
 
                     </div>
                 </form>
-        or <a href="#">browse projects</a>
+        or <a href="/">browse projects</a>
             </div>
         )
     }
