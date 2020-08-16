@@ -8,7 +8,7 @@ const convertParamsToQuery = (params) => {
 }
 
 export function getStatistics() {
-    return fetch(`${BASE_URL}/api/packages/stats`)
+    return fetch(`${BASE_URL}/packages/stats`)
         .then((response) => response.json())
 }
 
