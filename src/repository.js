@@ -1,10 +1,15 @@
-const BASE_URL = 'http://localhost:5000/api'
+const BASE_URL = 'http://localhost:80/api'
 
 
 const convertParamsToQuery = (params) => {
     return Object.keys(params)
         .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
         .join('&');
+}
+
+export function getStatistics() {
+    return fetch(`${BASE_URL}/api/packages/stats`)
+        .then((response) => response.json())
 }
 
 export function loginUser(userData) {

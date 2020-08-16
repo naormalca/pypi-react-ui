@@ -1,5 +1,6 @@
 import React from 'react';
-import '../styles/css/site.css'
+import { getStatistics } from '../repository';
+import '../styles/css/site.css';
 
 export class StasBar extends React.Component {
     constructor() {
@@ -11,8 +12,7 @@ export class StasBar extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:5000/api/packages/stats')
-            .then((response) => response.json())
+        getStatistics()
             .then((data) => {
                 this.setState({
                     loading: false,
@@ -20,9 +20,11 @@ export class StasBar extends React.Component {
                     releases: data.releases,
                     users: data.users
                 })
-            }).catch( () => {
-                this.setState({loading: false,
-                error: 'Data not available'})
+            }).catch(() => {
+                this.setState({
+                    loading: false,
+                    error: 'Data not available'
+                })
             });
 
     }
